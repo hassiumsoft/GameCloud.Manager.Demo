@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCloud.Manager.Demo", "GameCloud.Manager.Demo\GameCloud.Manager.Demo.csproj", "{7C045876-0472-4C18-9AD8-390970F0F642}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCloud.Manager.PluginContract", "GameCloud.Manager.PluginContract\GameCloud.Manager.PluginContract.csproj", "{91803A4A-A530-49CD-B86E-A3706D09E377}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7C045876-0472-4C18-9AD8-390970F0F642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C045876-0472-4C18-9AD8-390970F0F642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C045876-0472-4C18-9AD8-390970F0F642}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91803A4A-A530-49CD-B86E-A3706D09E377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91803A4A-A530-49CD-B86E-A3706D09E377}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91803A4A-A530-49CD-B86E-A3706D09E377}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91803A4A-A530-49CD-B86E-A3706D09E377}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

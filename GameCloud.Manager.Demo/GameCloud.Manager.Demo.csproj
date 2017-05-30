@@ -27,11 +27,5 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameCloud.Manager.PluginContract\GameCloud.Manager.PluginContract.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApiControllers\" />
-  </ItemGroup>
 
 </Project>
