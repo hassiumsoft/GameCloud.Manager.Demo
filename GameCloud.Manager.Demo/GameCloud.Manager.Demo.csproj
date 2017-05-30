@@ -22,5 +22,8 @@
   <ItemGroup>
     <ProjectReference Include="..\GameCloud.Manager.PluginContract\GameCloud.Manager.PluginContract.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApiControllers\" />
+  </ItemGroup>
 
 </Project>
