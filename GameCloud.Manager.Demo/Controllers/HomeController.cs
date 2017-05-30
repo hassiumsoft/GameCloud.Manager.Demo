@@ -27,18 +27,20 @@ namespace GameCloud.Manager.Demo.Controllers
         }
 
         //---------------------------------------------------------------------
-        public IActionResult About()
+        public IActionResult Table()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
         //---------------------------------------------------------------------
-        public IActionResult Contact()
+        public IActionResult Form()
         {
-            ViewData["Message"] = "Your contact page.";
+            return View();
+        }
 
+        //---------------------------------------------------------------------
+        public IActionResult Chart()
+        {
             return View();
         }
 
