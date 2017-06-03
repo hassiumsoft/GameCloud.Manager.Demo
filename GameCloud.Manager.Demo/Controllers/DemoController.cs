@@ -71,7 +71,7 @@ namespace GameCloud.Manager.App.ApiControllers
 
         [HttpPost]
         [Route("api/demo/form")]
-        public DemoPluginSettings GetDataForDemoUpdate([FromBody]UpdateRequestInfo<DemoPluginSettings> request)
+        public DemoPluginSettings GetDataForDemoUpdate([FromBody]DemoPluginSettings request)
         {
             if (GlobalSettings == null)
             {
@@ -82,13 +82,10 @@ namespace GameCloud.Manager.App.ApiControllers
                 GlobalSettings.UpdateTime = DateTime.UtcNow;
             }
 
-            if (request.Method == PluginRequestMethod.Update)
-            {
-                GlobalSettings.FormData1 = request.Body.FormData1;
-                GlobalSettings.FormData2 = request.Body.FormData2;
-                GlobalSettings.TestDate = request.Body.TestDate;
-                GlobalSettings.UpdateTime = DateTime.UtcNow;
-            }
+            GlobalSettings.FormData1 = request.FormData1;
+            GlobalSettings.FormData2 = request.FormData2;
+            GlobalSettings.TestDate = request.TestDate;
+            GlobalSettings.UpdateTime = DateTime.UtcNow;
 
             return GlobalSettings;
         }
