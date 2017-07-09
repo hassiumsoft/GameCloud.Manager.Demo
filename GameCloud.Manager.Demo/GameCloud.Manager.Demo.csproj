@@ -16,6 +16,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\js\controllers\IndexController.js" />
+    <Content Include="wwwroot\js\directives.js" />
+    <Content Include="wwwroot\js\directive\directives.js" />
     <Content Include="wwwroot\js\manager.js" />
   </ItemGroup>
   <ItemGroup>

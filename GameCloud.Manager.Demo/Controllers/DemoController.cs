@@ -14,6 +14,18 @@ namespace GameCloud.Manager.App.ApiControllers
                     .Select(i => new DemoPluginRawData() { Id = i, Name = "demo data " + i.ToString(), Type = (DemoEnumType)(i % 3) })
                     .ToList();
 
+        public DemoController()
+        {
+            if (GlobalSettings == null)
+            {
+                GlobalSettings = new DemoPluginSettings();
+                GlobalSettings.FormData1 = "FormData1-Default";
+                GlobalSettings.FormData2 = "FormData2-Default";
+                GlobalSettings.TestDate = DateTime.Now;
+                GlobalSettings.UpdateTime = DateTime.UtcNow;
+            }
+        }
+
         [HttpPost]
         [Route("api/demo/table")]
         public PluginPaginationResponse<DemoPluginRawData> GetDataForDemoList([FromBody]SearchRequestInfo<DemoPluginRawData> request)
@@ -70,18 +82,46 @@ namespace GameCloud.Manager.App.ApiControllers
         }
 
         [HttpPost]
-        [Route("api/demo/form")]
-        public DemoPluginSettings GetDataForDemoUpdate([FromBody]DemoPluginSettings request)
+        [Route("api/demo/table/update")]
+        public void TableUpdate([FromBody]DemoPluginRawData request)
         {
-            if (GlobalSettings == null)
+            var updateRawData = request;
+            if (updateRawData != null)
             {
-                GlobalSettings = new DemoPluginSettings();
-                GlobalSettings.FormData1 = "FormData1-Default";
-                GlobalSettings.FormData2 = "FormData2-Default";
-                GlobalSettings.TestDate = DateTime.Now;
-                GlobalSettings.UpdateTime = DateTime.UtcNow;
+                var dbRawData = SampleDatas.FirstOrDefault(d => d.Id == updateRawData.Id);
+                if (dbRawData != null)
+                {
+                    dbRawData.Name = updateRawData.Name;
+                    dbRawData.Type = updateRawData.Type;
+                }
             }
+        }
 
+        [HttpPost]
+        [Route("api/demo/table/delete")]
+        public void TableDelete([FromBody]DemoPluginRawData request)
+        {
+            var deleteRawData = request;
+            if (deleteRawData != null)
+            {
+                if (SampleDatas.Any(d => d.Id == deleteRawData.Id))
+                {
+                    SampleDatas.Remove(SampleDatas.First(d => d.Id == deleteRawData.Id));
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("api/demo/form")]
+        public DemoPluginSettings GetDemoData()
+        {
+            return GlobalSettings;
+        }
+
+        [HttpPost]
+        [Route("api/demo/form")]
+        public DemoPluginSettings UpdateDemoData([FromBody]DemoPluginSettings request)
+        {
             GlobalSettings.FormData1 = request.FormData1;
             GlobalSettings.FormData2 = request.FormData2;
             GlobalSettings.TestDate = request.TestDate;
